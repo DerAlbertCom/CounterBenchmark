@@ -1,0 +1,13 @@
+﻿@model CounterBenchmark.Models.BenchmarkModel
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Ergebnis @Model.Name von @Model.Time</h2>
+<table class="table">
+    <tr><td>Letzter Wert</td><td class="right">@Model.LastValue</td></tr>
+    <tr><td>Millisekunden</td><td class="right">@Model.ElapsedMilliseconds</td></tr>
+    <tr><td>Durchläufe</td><td class="right">@Model.Durations</td></tr>
+    <tr><td>Durchläufe pro Sekunde</td><td class="right">@Model.DurationsPerSeconds</td></tr>
+</table>

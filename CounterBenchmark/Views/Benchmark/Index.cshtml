@@ -1,0 +1,18 @@
+﻿@model  Dictionary<string, CounterBenchmark.Models.BenchmarkModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+
+
+<ul>
+    <li>@Html.ActionLink("ClientSide", "ClientSide")</li>
+    <li>@Html.ActionLink("StoredProcedure", "StoredProcedure")</li>
+    <li>@Html.ActionLink("RedisIncrement", "Redis")</li>
+</ul>
+@foreach (var keyValue in Model)
+{
+    @Html.Partial("Result",keyValue.Value)
+}
