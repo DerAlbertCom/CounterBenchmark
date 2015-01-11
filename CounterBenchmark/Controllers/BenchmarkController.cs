@@ -26,7 +26,12 @@ namespace CounterBenchmark.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> Redis()
+        public async Task<ActionResult> Redis10()
+        {
+            var benchmark = new RedisIncrement10();
+            await Run(benchmark);
+            return RedirectToAction("Index");
+        }        public async Task<ActionResult> Redis()
         {
             var benchmark = new RedisIncrement();
             await Run(benchmark);
@@ -39,6 +44,24 @@ namespace CounterBenchmark.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<ActionResult> StoredProcedure10()
+        {
+            var benchmark = new EntityFrameworkStoredProcedure10();
+            await Run(benchmark);
+            return RedirectToAction("Index");
+        }
+        public async Task<ActionResult> ServiceBus()
+        {
+            var benchmark = new ServicebusSendMessages();
+            await Run(benchmark);
+            return RedirectToAction("Index");
+        }
+        public async Task<ActionResult> ServiceBus10()
+        {
+            var benchmark = new ServicebusSendMessages10();
+            await Run(benchmark);
+            return RedirectToAction("Index");
+        }
         public async Task<BenchmarkModel> Run(IBenchmark benchmark)
         {
             const long durations = 1000;
